@@ -1,0 +1,4 @@
+<p>aux-buttons works!</p>
+<aux-app-frame (componentReady)="readyHandler($event)">
+  <aux-button label="button" *ngFor="let button of buttons; trackBy: buttonButId">test</aux-button>
+</aux-app-frame>

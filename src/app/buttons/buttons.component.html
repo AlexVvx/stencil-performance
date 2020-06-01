@@ -1,0 +1,45 @@
+<div class="chart-wrapper">
+  <canvas
+    baseChart
+    [datasets]="lineChartData"
+    [labels]="lineChartLabels"
+    [options]="lineChartOptions"
+    [colors]="lineChartColors"
+    [legend]="lineChartLegend"
+    [chartType]="lineChartType"
+  ></canvas>
+</div>
+
+<button (click)="showIndex[0] = true">start</button>
+
+<app-regular-buttons
+  [numberOfButtons]="count"
+  (componentRendered)="readyHandler($event, 0)"
+  *ngIf="showIndex[0]"
+></app-regular-buttons>
+<app-web-buttons
+  [numberOfButtons]="count"
+  (componentRendered)="readyHandler($event, 1)"
+  *ngIf="showIndex[1]"
+></app-web-buttons>
+<app-material-buttons
+  [numberOfButtons]="count"
+  (componentRendered)="readyHandler($event, 2)"
+  *ngIf="showIndex[2]"
+>
+</app-material-buttons>
+<aw-app-frame (componentReady)="readyHandler($event, 3)" *ngIf="showIndex[3]">
+  <aw-button label="button" *ngFor="let button of buttons; trackBy: buttonButId"
+    >test</aw-button
+  >
+</aw-app-frame>
+<aw-app-frame (componentReady)="readyHandler($event, 4)" *ngIf="showIndex[4]">
+  <aux-button
+    label="button"
+    *ngFor="let button of buttons; trackBy: buttonButId"
+    >test</aux-button
+  >
+</aw-app-frame>
+<aw-app-frame (componentReady)="readyHandler($event, 5)" *ngIf="showIndex[5]">
+  <ion-button *ngFor="let button of buttons">test</ion-button>
+</aw-app-frame>
